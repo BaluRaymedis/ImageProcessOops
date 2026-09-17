@@ -1,0 +1,112 @@
+.mfx-button{
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-alignment: center;
+    -fx-font-size: 25;
+    -fx-font-family: "Century Gothic";
+    -fx-pref-width: 200;
+    -fx-pref-height: 50;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+
+}
+
+#mainScreen{
+    -fx-background-color: #ffffff;
+    -fx-padding: 20;
+}
+#title_box{
+    -fx-border-width: 3;
+    -fx-border-radius: 10;
+    -fx-border-color: blue;
+    -fx-border-style: dotted;
+    -fx-padding: 20;
+    -fx-font-family: "Times New Roman";
+}
+#title{
+    -fx-text-fill: red;
+    -fx-font-size: 40;
+}
+
+#imageGen{
+    -fx-border-width: 3;
+    -fx-border-radius: 10;
+    -fx-border-color: blue;
+    -fx-border-style: dotted;
+
+}
+#imgUploadLabel{
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 20;
+    -fx-text-fill: red;
+    -fx-alignment: top-center;
+}
+#miniBtn{
+    -fx-pref-width: 20;
+    -fx-pref-height: 20;
+}
+#closeBtn{
+    -fx-pref-width: 20;
+    -fx-pref-height: 20;
+}
+
+#rightPanelContainer{
+    -fx-border-width: 3;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-color: blue;
+    -fx-border-style: dotted;
+    -fx-padding: 20;
+    -fx-text-alignment: justify;
+    -fx-background-color: transparent;
+}
+#listOfButtonsLabel{
+    -fx-font-family: "Times New Roman";
+    -fx-font-size: 25;
+    -fx-text-fill: red;
+    -fx-alignment: center;
+    -fx-background-color: transparent;
+}
+
+#imageViewer{
+    -fx-alignment: center;
+    -fx-fit-height: 500;
+    -fx-fit-width: 500;
+
+}
+
+.mfx-slider{
+    -fx-pref-width: 350;
+    -fx-pref-height: 50;
+
+    -mfx-slider-mode: default;
+    -mfx-show-minor-ticks: true;
+    -mfx-show-major-ticks: true;
+    -mfx-orientation: horizontal;
+    -mfx-popup-side: other-side;
+    -mfx-bidirectional: true;
+
+
+}
+
+.mfx-slider .bar{
+    -fx-fill: black;
+}
+.mfx-slider .thumb-container .thumb {
+    -fx-fill: white;
+}
+#imageScrollPane{
+    -fx-background-color: #2a2a2a;
+}
+
+#imageScrollPane .viewport{
+    -fx-background-color: transparent;
+
+}
+#imageScrollPane .scroll-bar{
+    -fx-background-color: #2a2a2a;
+}
+#sliderValue{
+    -fx-text-fill: red;
+    -fx-font-size: 20;
+}

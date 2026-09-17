@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.canvas.Canvas?>
+<?import io.github.palexdev.materialfx.controls.MFXSlider?>
+<?import javafx.scene.control.ListView?>
+<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
+<?import io.github.palexdev.virtualizedfx.controls.MFXScrollBar?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.imageprocessoops.MainController" stylesheets="@Styles/Styles.css" id="mainScreen">
+    <top>
+        <BorderPane id="title_box">
+            <left>
+                <Label id="title" text="Image Processing" />
+            </left>
+            <right>
+                <HBox spacing="20">
+                    <MFXButton id="miniBtn" text="" fx:id="minimize" onAction="#miniBtn" >
+                        <graphic>
+                            <FontIcon iconLiteral="mdi2m-minus" iconColor="white" />
+                        </graphic>
+                    </MFXButton>
+                    <MFXButton id="closeBtn" text="" onAction="#exitBtn">
+                        <graphic>
+                            <FontIcon iconLiteral="mdi2e-exit-to-app" iconColor="white"/>
+                        </graphic>
+                    </MFXButton>
+                </HBox>
+            </right>
+        </BorderPane>
+    </top>
+    <center>
+        <BorderPane id="imageGen" styleClass="imageGen">
+            <center>
+                <StackPane fx:id="imageContainer" alignment="CENTER" maxWidth="700" maxHeight="700" prefHeight="700" prefWidth="700" minHeight="700" minWidth="700" style="-fx-background-color: #2a2a2a">
+                    <ImageView id="imageViewer" fx:id="imageView" preserveRatio="true" fitWidth="700" fitHeight="700"/>
+                    <Canvas id="canvasImage" fx:id="canvasImage" width="700" height="700" mouseTransparent="true"/>
+                </StackPane>
+            </center>
+        </BorderPane>
+
+    </center>
+    <right>
+<StackPane id="rightPanelContainer" fx:id="rightPanelContainer">
+        <VBox id="buttonsBox" fx:id="buttonsBox" spacing="20">
+            <HBox alignment="TOP_RIGHT">
+            <MFXButton text="" maxWidth="50" maxHeight="50" onAction="#toggleFlip" alignment="CENTER">
+                <graphic>
+                    <FontIcon iconLiteral="mdi2a-arrow-left-right" iconColor="white"/>
+                </graphic>
+            </MFXButton>
+            </HBox>
+            <Label id="listOfButtonsLabel" text="Updated Buttons"/>
+            <HBox spacing="20">
+                <MFXButton id="uploadBtn" onAction="#uploadImageBtn" buttonType="FLAT" text="Upload">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2i-image" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+                <MFXButton styleClass="fitBtn" fx:id="fit" text="Fit" onAction="#fitBtn">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2f-fit-to-page" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+            </HBox>
+            <HBox spacing="20">
+                <MFXButton fx:id="zoom" styleClass="zoomBtn" onAction="#zoomBtn" text="Zoom">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2m-magnify" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+            </HBox>
+            <HBox spacing="20">
+                <MFXButton fx:id="pan" styleClass="panBtn" text="Pan" onAction="#panBtn">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2h-hand-back-right" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+                <MFXButton styleClass="scaleBtn" fx:id="line" onAction="#lineBtn" text="Line">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2p-power-on" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+            </HBox>
+            <HBox spacing="20">
+                <MFXButton styleClass="rotateBtn" fx:id="rotate" onAction="#rotateBtn" text="Rotate">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2a-axis-z-rotate-clockwise" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+                <MFXButton styleClass="antiRotateBtn" fx:id="antiRotate" onAction="#antiRotateBtn" text="Anti Rotate">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2a-axis-z-rotate-counterclockwise" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+            </HBox>
+            <HBox spacing="20">
+                <MFXButton styleClass="brightnessBtn" fx:id="brightness" onAction="#brightnessBtn" text="Brightness">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2b-brightness-6" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+                <MFXButton styleClass="contrastBtn" fx:id="contrast" onAction="#contrastBtn" text="Contrast">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2c-contrast-box" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+            </HBox>
+            <HBox spacing="20">
+                <MFXButton styleClass="flipBtn" fx:id="flip" onAction="#flipBtn" text="Flip">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2f-flip-horizontal" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+                <MFXButton styleClass="angleBtn" fx:id="angle" onAction="#angleBtn" text="Angle">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2a-angle-acute" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+            </HBox>
+            <HBox spacing="20">
+                <MFXButton styleClass="saveBtn" fx:id="save" onAction="#saveBtn" text="Save">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2c-content-save-outline" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+                <MFXButton styleClass="resetBtn" fx:id="reset" onAction="#resetBtn" text="Reset">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2i-image" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+            </HBox>
+            <HBox spacing="20">
+                <MFXButton styleClass="saveBtn" onAction="#ellipseBtn" text="Ellipse">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2e-ellipse-outline" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+                <MFXButton styleClass="resetBtn" onAction="#deleteBtn" text="Delete">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2d-delete" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+            </HBox>
+            <HBox spacing="20" fx:id="sliderHbox" visible="false" alignment="CENTER">
+
+                <MFXSlider fx:id="slider" sliderMode="SNAP_TO_TICKS" popupSide="OTHER_SIDE" enableKeyboard="true" popupPadding="20" min="1.0" max="100.0" value="50.0" />
+                <Label id="sliderValue" fx:id="sliderLabelValue"  text="50"/>
+            </HBox>
+        </VBox>
+
+        <VBox id="imageListBox" fx:id="imageListBox" spacing="20" visible="false">
+            <HBox alignment="TOP_RIGHT">
+                <MFXButton text="" maxWidth="50" maxHeight="50" onAction="#toggleFlip" alignment="CENTER">
+                    <graphic>
+                        <FontIcon iconLiteral="mdi2a-arrow-left-right" iconColor="white"/>
+                    </graphic>
+                </MFXButton>
+            </HBox>
+            <Label id="listOfImagesLabel" text="List of Images"/>
+            <MFXScrollPane vbarPolicy="ALWAYS" prefHeight="800">
+            <ListView fx:id="imageListView" />
+            </MFXScrollPane>
+
+        </VBox>
+</StackPane>
+    </right>
+</BorderPane>
