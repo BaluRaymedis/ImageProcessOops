@@ -7,10 +7,9 @@ import org.example.imageprocessoops.ImageWorkSpace.ImageWorkSpace;
 import org.example.imageprocessoops.NoOperationTools.NoOperationTools;
 
 public class AngleTools extends NoOperationTools {
-    private double firstX, firstY;      // point 1 (arm end)
-    private double vertexX, vertexY;    // point 2 (vertex)
-    private int clickCount = 0;         // ఎన్ని points click అయ్యాయో track చేయడానికి
-
+    private double firstX, firstY;
+    private double vertexX, vertexY;
+    private int clickCount = 0;
     private Color lineColor = Color.BLUE;
     private static final double POINT_RADIUS = 4;
 
@@ -48,8 +47,7 @@ public class AngleTools extends NoOperationTools {
             double thirdY = event.getY();
 
             gc.setFill(lineColor);
-            gc.fillOval(thirdX - POINT_RADIUS, thirdY - POINT_RADIUS,
-                    POINT_RADIUS * 2, POINT_RADIUS * 2);
+            gc.fillOval(thirdX - POINT_RADIUS, thirdY - POINT_RADIUS, POINT_RADIUS * 2, POINT_RADIUS * 2);
 
             gc.setStroke(lineColor);
             gc.setLineWidth(2);
@@ -60,8 +58,6 @@ public class AngleTools extends NoOperationTools {
 
             gc.setFill(Color.GREENYELLOW);
             gc.fillText(angleText, vertexX + 10, vertexY - 10);
-
-            // reset — next angle measurement కి ready
             clickCount = 0;
         }
     }
@@ -77,8 +73,7 @@ public class AngleTools extends NoOperationTools {
 
 
         gc.setFill(lineColor);
-        gc.fillOval(firstX - POINT_RADIUS, firstY - POINT_RADIUS,
-                POINT_RADIUS * 2, POINT_RADIUS * 2);
+        gc.fillOval(firstX - POINT_RADIUS, firstY - POINT_RADIUS, POINT_RADIUS * 2, POINT_RADIUS * 2);
 
         if (clickCount == 1) {
 
@@ -88,8 +83,7 @@ public class AngleTools extends NoOperationTools {
 
         } else if (clickCount == 2) {
 
-            gc.fillOval(vertexX - POINT_RADIUS, vertexY - POINT_RADIUS,
-                    POINT_RADIUS * 2, POINT_RADIUS * 2);
+            gc.fillOval(vertexX - POINT_RADIUS, vertexY - POINT_RADIUS, POINT_RADIUS * 2, POINT_RADIUS * 2);
 
             gc.setStroke(lineColor);
             gc.setLineWidth(2);
@@ -121,7 +115,9 @@ public class AngleTools extends NoOperationTools {
         double angle2 = Math.atan2(v2y, v2x);
 
         double angleDeg = Math.toDegrees(angle2 - angle1);
-        if (angleDeg < 0) angleDeg += 360;
+        if (angleDeg < 0){
+            angleDeg += 360;
+        }
         return angleDeg;
     }
 }
