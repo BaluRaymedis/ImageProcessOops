@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
@@ -20,6 +21,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.example.imageprocessoops.CommandClasses.*;
 import org.example.imageprocessoops.CommandInterface.Command;
+
 import org.example.imageprocessoops.ImageWorkSpace.ImageWorkSpace;
 import org.example.imageprocessoops.ToolManager.ToolManager;
 import org.example.imageprocessoops.Tools.*;
@@ -89,6 +91,11 @@ public class MainController {
         exitCommand = new ExitCommand();
         brightnessCommand = new BrightnessCommand(imageWorkSpace);
 
+
+//        angleTool = new AngleMeasurementTool(angle -> angleLabel.setText(String.format("Angle: %.2f°", angle)));
+//        canvasImage.setOnMouseClicked(e ->
+//                angleTool.addPoint(new Point2D(e.getX(), e.getY()))
+//        );
     }
 
     public void attachStage(Stage stage) {
@@ -158,6 +165,7 @@ public class MainController {
     }
 
     public void angleBtn(ActionEvent actionEvent) {
+        toolManager.setTool(new AngleTools());
     }
 
     public void saveBtn(ActionEvent actionEvent) {
