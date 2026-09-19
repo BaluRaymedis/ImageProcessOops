@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -45,6 +46,8 @@ public class MainController {
     private VBox buttonsBox;
     @FXML
     private VBox imageListBox;
+    @FXML
+    private FlowPane imageFlow;
 
     private boolean showingButtons = true;
 
@@ -172,13 +175,14 @@ public class MainController {
 //        saveImageCommand.execute();
 
         Image snapshot = imageWorkSpace.captureSnapshot();
-        savedImagesList.add(snapshot);
+        savedImagesList.add(0,snapshot);
+
         ImageView thumbnail = new ImageView(snapshot);
         thumbnail.setFitWidth(180);
         thumbnail.setFitHeight(180);
         thumbnail.setPreserveRatio(true);
         thumbnail.setOnMouseClicked(e->imageWorkSpace.uploadImage(snapshot));
-        imageListBox.getChildren().add(thumbnail);
+        imageFlow.getChildren().add(0,thumbnail);
     }
 
     public void ellipseBtn(ActionEvent actionEvent) {

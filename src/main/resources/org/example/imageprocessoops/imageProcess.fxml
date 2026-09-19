@@ -16,6 +16,7 @@
 <?import javafx.scene.control.ListView?>
 <?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
 <?import io.github.palexdev.virtualizedfx.controls.MFXScrollBar?>
+<?import javafx.scene.layout.FlowPane?>
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.imageprocessoops.MainController" stylesheets="@Styles/Styles.css" id="mainScreen">
     <top>
         <BorderPane id="title_box">
@@ -175,7 +176,8 @@
                                 <FontIcon iconLiteral="mdi2d-delete" iconColor="white"/>
                             </graphic>
                         </MFXButton>
-                        <ListView fx:id="imageListView" VBox.vgrow="ALWAYS"/>
+                        <FlowPane fx:id="imageFlow" hgap="10" vgap="10"/>
+<!--                        <ListView fx:id="imageListView" VBox.vgrow="ALWAYS"/>-->
                     </VBox>
                 </content>
             </MFXScrollPane>
